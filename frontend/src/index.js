@@ -1,9 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import axios from "axios";
 import "./index.css";
 import App from "./App";
+import { BASE_URL } from "./utils/config";
 
 import { AuthContextProvider } from "./context/authContext";
+
+axios.defaults.baseURL = BASE_URL;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

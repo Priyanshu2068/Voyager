@@ -3,6 +3,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import backgroundImage from '../../assets/images/event.jpg';
+import { BASE_URL } from '../../utils/config';
 
 const Activity = ({ id, name, description, startTime, endTime, image }) => {
   const navigate = useNavigate();
@@ -73,7 +74,7 @@ const FilterActivities = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `activities/filter?type=${activityType}&searchQuery=${searchQuery}&startDate=${startDate}&startTime=${startTime}&endDate=${endDate}&endTime=${endTime}`
+        `${BASE_URL}activities/filter?type=${activityType}&searchQuery=${searchQuery}&startDate=${startDate}&startTime=${startTime}&endDate=${endDate}&endTime=${endTime}`
       );
       const data = await response.json();
       setLoading(false);
